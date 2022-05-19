@@ -1,0 +1,15 @@
+import math
+m, n, x, y, v, d = int(input()), int(input()), int(input()), int(input()), int(input()), 0
+p = [[0 for j in range(m)] for i in range(n)]
+p[y][x] = v
+while True:
+  t = round(math.sqrt(v))
+  if t * t != v or t < 2: break
+  d += 1
+  v = t
+  for i in range(max(y - d, 0), min(y + d + 1, n)):
+       for j in range(max(x - d, 0), min(x + d + 1, m)):
+              if abs(i - y) == d or abs(j - x) == d: 
+p[i][j] = v
+for s in p:
+ print(*s)
